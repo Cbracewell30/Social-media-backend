@@ -1,0 +1,24 @@
+{
+  "name": "social-media-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cbracewell30/Social-media-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cbracewell30/Social-media-backend/issues"
+  },
+  "homepage": "https://github.com/Cbracewell30/Social-media-backend#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  }
+}
