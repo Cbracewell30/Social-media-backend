@@ -20,10 +20,6 @@ const UserController = {
         path: "thoughts",
         select: "-__v",
       })
-      .populate({
-        path: "friends",
-        select: "__v",
-      })
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: "No user found with this id!" });
@@ -77,7 +73,7 @@ const UserController = {
   addFriend({ params, body }, res) {
     User.findOneAndUpdate(
       { _id: params.id },
-      { $addToSet: { firends: params.friendId } },
+      { $addToSet: { friends: params.friendId } },
       {
         new: true,
       }

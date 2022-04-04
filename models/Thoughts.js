@@ -32,6 +32,12 @@ const ThoughtSchema = new Schema(
 
 const Thoughts = model("Thoughts", ThoughtSchema);
 
+// virtual to remove the documents once deleted.
+ThoughtSchema.pre("remove", function (next) {
+  // Remove all the assignment docs that reference the removed person.
+  this.model("Thoughts").remove({ ThoughtId: this._id }, next);
+});
+
 ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });

@@ -10,17 +10,19 @@ const {
 } = require("../../controllers/thought-controller");
 
 // Get all thoughts
-router.route("/").get(getAllThoughts);
-
-// add a thought
-router.route("/:userId").post(addThoughts);
+router.route("/").get(getAllThoughts).post(addThoughts);
 
 //
-router.route("/:userId/:thoughtId").put(updateThought).delete(removeThought);
 //
-router.route("/:thoughtId").get(getThoughtById);
+router
+  .route("/:thoughtId")
+  .get(getThoughtById)
+  .put(updateThought)
+  .delete(removeThought);
 
 //api/thoughts/:thoughtId/reactions
-router.get("/:thoughtId/reactions").put(addReaction);
+router.route("/:thoughtId/reactions").post(addReaction);
+
+router.route("/:thoughtId/:reactionsId").delete(removeReaction);
 
 module.exports = router;
